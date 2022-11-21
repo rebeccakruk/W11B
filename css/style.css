@@ -7,6 +7,15 @@ html {
     background-color: blanchedalmond;
 }
 
+img {
+    height: 30vh;
+}
+
 #logo {
     height: 10vh;
+}
+
+#shopping {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
 }
