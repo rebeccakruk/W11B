@@ -7,8 +7,8 @@ let itemsArray = [
     },
     {
         id: 2,
-        imageUrl: `https://cb.scene7.com/is/image/Crate/GoldenFeatherOrnamentSSF22?$web_pdp_main_carousel_thumb_med$`,
-        description: `Gold Feather Ornament`,
+        imageUrl: `https://cb.scene7.com/is/image/Crate/BoiledWoolOrnHolidaySlothSSF22?$web_pdp_main_carousel_thumb_med$`,
+        description: `Holiday Sloth Ornament`,
         price: 9.0,
     },
     {
@@ -19,15 +19,15 @@ let itemsArray = [
     },
     {
         id: 4,
-        imageUrl: `https://cb.scene7.com/is/image/Crate/GoldenFeatherOrnamentSSF22?$web_pdp_main_carousel_thumb_med$`,
-        description: `Gold Feather Ornament`,
+        imageUrl: `https://cb.scene7.com/is/image/Crate/SnowmanSnowglobeSSF20?$web_pdp_main_carousel_thumb_med$`,
+        description: `Snowman Tree Ornament`,
         price: 8.0,
     },
     {
         id: 5,
-        imageUrl: `https://cb.scene7.com/is/image/Crate/GoldenFeatherOrnamentSSF22?$web_pdp_main_carousel_thumb_med$`,
-        description: `Gold Feather Ornament`,
-        price: 7.0,
+        imageUrl: `https://cb.scene7.com/is/image/Crate/GlitterStarOrnamentsFSSF22/$web_pdp_main_carousel_med$/220727124059/glitter-star-ornaments.jpg`,
+        description: `Three Stars Ornaments, set of 3`,
+        price: 12.0,
     },
     {
         id: 6,
@@ -36,40 +36,30 @@ let itemsArray = [
         price: 10.0,
     },
 ];
-console.log(itemsArray);
 
+console.log(itemsArray);
 itemsArray.map((item) => {
-    document.getElementById(`items`).insertAdjacentHTML(`afterbegin`, 
-    `<div id=${item.id}>
+    document.getElementById(`items`).insertAdjacentHTML(
+      `afterbegin`,
+      `<div id=${item.id}>
         <h2>${item.description}</h2>
         <img src=${item.imageUrl} alt=${item.description}>
         <p class="price">${item.price}</p>
-        <button onClick="addToCart(${item})">Add To Cart</button>
+        <button onClick='addToCart(${JSON.stringify(item)})'>Add To Cart</button>
     </div>
-    `);
+    `
+    );
 })
 
-// let cart = [];
+let cart = [];
 
-function addToCart(){
-// cart.push(item);
-console.log(`clicked`);
+
+function addToCart(item){
+    cart.push(item);
+    console.log(cart);
+    let cartJson = JSON.stringify(cart);
+    Cookies.set(`addedToCart`, cartJson);
 }
-
-// // Cookies.set(`AddedToCart`)
-// items = {};
-// function appendNode(parent, element){
-//     parent.appendChild(element);
-// };
-
-// function addToCart(action){
-//     let container = '';
-//     if(action == "add") {
-//         container = getDiv("items");
-//         takeAction(container)
-//     } else if (action == "remove") {
-//         container = getDiv("cart");
-//         takeAction(container);
 
 // function takeAction(container, action) {
 //     container.addEventListener(`click`, function(event){
@@ -99,10 +89,6 @@ console.log(`clicked`);
 // addToCart('add');
 // addToCart(`remove`);
 // function addToCart(event) {
-
-
-//// this took five hours to just restart and copy the example in class because that's all I seem to be able to get working. Google does not help.
-
 
 // let clicks = document.querySelectorAll("shopping");
 // for (let i=0; i<clicks.length; i++){
@@ -135,13 +121,4 @@ console.log(`clicked`);
 // console.log(`key:`, key);
 // }
 
-// document.getElementById(`buy`).insertAdjacentHTML(`beforeend`, `<button>Add to Cart</button>`);
 
-// let choices = [];
-// options.querySelector(`button`).addEventListener(`click`, addToCart);
-
-// addToCart(items, items[0]);
-// addToCart(items, items[1]);
-// addToCart(items, items[2]);
-// addToCart(items, items[3]);
-// console.log(`hello`);
